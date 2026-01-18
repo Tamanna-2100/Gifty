@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page active">
+    <div class="container">
+        <div class="results-header">
+            <h2>🎅 {{ group.name }}</h2>
+            <p class="budget-display">Budget: {{ group.budget }}</p>
+
+            {% if not group.is_matched %}
+            <div class="share-box"
+                style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                <p><strong>Invite Link:</strong></p>
+                <input type="text" value="{{ join_link }}" readonly
+                    style="width: 100%; padding: 0.5rem; border-radius: 5px; border:none; color: #333;"
+                    onclick="this.select()">
+            </div>
+            {% else %}
+            <div class="alert alert-success">✅ Names have been matched!</div>
+            {% endif %}
+        </div>
+
+        <div class="quiz-container">
+            <h3>Participants ({{ group.members|length }})</h3>
+            <ul style="list-style: none; padding: 0;">
+                {% for member in group.members %}
+                <li
+                    style="padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between;">
+                    <span>{{ member.name }}</span>
+                    {% if group.is_matched and member.assigned_recipient_id %}
+                    <!-- In a real app, maybe hide this from admin to keep it secret, or show it. Let's hide it securely. -->
+                    <span style="color: #4ade80;">Matched</span>
+                    {% else %}
+                    <span style="color: #94a3b8;">Joined</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+
+            {% if not group.is_matched %}
+            {% if group.members|length >= 2 %}
+            <form method="POST" action="{{ url_for('match_names', group_id=group.id) }}"
+                style="text-align: center; margin-top: 2rem;">
+                <button type="submit" class="btn-primary">🎩 Draw Names</button>
+            </form>
+            {% else %}
+            <p style="text-align: center; margin-top: 1rem; color: #cbd5e1;">Need at least 2 members to draw names.</p>
+            {% endif %}
+            {% endif %}
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="{{ url_for('home') }}" class="btn-secondary">Back Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

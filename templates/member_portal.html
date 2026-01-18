@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page active">
+    <div class="container">
+        <div class="results-header">
+            <h2>Welcome, {{ member.name }}!</h2>
+            <p style="color: #cbd5e1;">Group: {{ member.group.name }} | Budget: {{ member.group.budget }}</p>
+        </div>
+
+        <div class="quiz-container" style="text-align: center;">
+            {% if recipient %}
+            <div class="gift-card" style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.2);">
+                <h3>你是 Secret Santa for...</h3>
+                <h1 style="font-size: 3rem; margin: 1rem 0; color: #fbbf24;">{{ recipient.name }}</h1>
+
+                <div
+                    style="text-align: left; background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
+                    <h4>Their Profile:</h4>
+                    <ul style="margin-top: 0.5rem; line-height: 1.6;">
+                        <li><strong>Age:</strong> {{ recipient.quiz_profile.age_group }}</li>
+                        <li><strong>Style:</strong> {{ recipient.quiz_profile.style }}</li>
+                        <li><strong>Personality:</strong> {{ recipient.quiz_profile.personality }}</li>
+                        <li><strong>Climate:</strong> {{ recipient.quiz_profile.climate }}</li>
+                        <li><strong>Colors:</strong> {{ recipient.quiz_profile.color_scheme }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">🎁 Artificial Intelligent Gift Ideas</h3>
+            <div class="recommendations-grid">
+                {% for idea in gift_ideas %}
+                <div class="gift-card">
+                    <div class="gift-icon">💡</div>
+                    <h3>{{ idea }}</h3>
+                    <p>Based on their profile</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% else %}
+            <div style="padding: 3rem;">
+                <h3>⏳ Waiting for match...</h3>
+                <p>The leader hasn't drawn names yet. Check back later!</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

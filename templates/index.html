@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="landing-page" class="page active">
+    <div class="container">
+        <div class="hero">
+            <h1 class="logo">🎁 Gifty</h1>
+            <p class="tagline">Find the perfect gift for anyone</p>
+
+            <div class="mode-selection">
+                <button class="mode-btn" onclick="startQuiz()">
+                    <span class="mode-icon">🎯</span>
+                    <h3>Personalized Quiz</h3>
+                    <p>Answer questions for custom recommendations</p>
+                </button>
+
+                <a href="{{ url_for('create_group') }}" class="mode-btn">
+                    <span class="mode-icon">🎅</span>
+                    <h3>Organize Secret Santa</h3>
+                    <p>Create a group and invite friends</p>
+                </a>
+
+                <!-- Keeping original JS functionality for these for now, or could link to new routes if built -->
+                <button class="mode-btn" onclick="showGeneralGifts()">
+                    <span class="mode-icon">🎁</span>
+                    <h3>General Gift Ideas</h3>
+                    <p>Browse safe, universal gift options</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Original Client-Side Quiz Pages -->
+<div id="quiz-page" class="page">
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+        <div class="quiz-container">
+            <div class="question-counter">
+                Question <span id="current-question">1</span> of <span id="total-questions">12</span>
+            </div>
+            <div id="question-container">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="results-page" class="page">
+    <div class="container">
+        <div class="results-header">
+            <h2>Perfect Gifts for <span id="person-name"></span></h2>
+            <p class="budget-display">Budget: <span id="budget-amount"></span></p>
+        </div>
+        <div id="recommendations" class="recommendations-grid">
+            <!-- Gift recommendations will be inserted here -->
+        </div>
+        <div style="text-align: center;">
+            <button class="btn-secondary" onclick="restartQuiz()">Find Another Gift</button>
+            <button class="btn-back" onclick="goHome()" style="margin-left: 10px;">Home</button>
+        </div>
+    </div>
+</div>
+
+<!-- Re-including original static sections for compatibility if they use the JS show/hide logic -->
+<!-- Ideally we'd move these to separate Flask routes -->
+<div id="general-gifts-page" class="page">
+    <div class="container">
+        <div class="page-header">
+            <h2>🎁 General Gift Ideas</h2>
+            <button class="btn-back" onclick="goHome()">← Back</button>
+        </div>
+        <div class="general-gifts-grid">
+            <div class="gift-card">
+                <div class="gift-icon">🎫</div>
+                <h3>Gift Cards</h3>
+                <p>Amazon, Target, Barnes & Noble</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">🕯️</div>
+                <h3>Scented Candles</h3>
+                <p>Always a crowd pleaser.</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">📚</div>
+                <h3>Notebooks</h3>
+                <p>For the organized friend.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

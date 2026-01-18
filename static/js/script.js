@@ -12,7 +12,7 @@ const questions = [
         id: 2,
         type: 'input',
         question: "What's your budget for this gift?",
-        inputType: 'number',
+        inputType: 'text',
         placeholder: "Enter amount in dollars",
         field: 'budget'
     },
@@ -22,14 +22,14 @@ const questions = [
         question: "What's their age group?",
         field: 'age',
         options: [
-            { text: 'Baby', value: 'baby', emoji: '👶' },
-            { text: 'Toddler', value: 'toddler', emoji: '🧒' },
-            { text: 'Kid (5-10)', value: 'kid', emoji: '👧' },
-            { text: 'Pre-Teen (11-13)', value: 'preteen', emoji: '🧑' },
-            { text: 'Teen (13-18)', value: 'teen', emoji: '👦' },
-            { text: 'Young Adult (19-30)', value: 'young-adult', emoji: '👨' },
-            { text: 'Adult (31-50)', value: 'adult', emoji: '👔' },
-            { text: 'Senior (50+)', value: 'senior', emoji: '👴' }
+            { text: 'Baby', value: 'baby', emoji: '👶', imageKeyword: 'baby,portrait' },
+            { text: 'Toddler', value: 'toddler', emoji: '🧒', imageKeyword: 'toddler,portrait' },
+            { text: 'Kid (5-10)', value: 'kid', emoji: '👧', imageKeyword: 'child,portrait' },
+            { text: 'Pre-Teen (11-13)', value: 'preteen', emoji: '🧑', imageKeyword: 'preteen,portrait' },
+            { text: 'Teen (13-18)', value: 'teen', emoji: '👦', imageKeyword: 'teenager,portrait' },
+            { text: 'Young Adult (19-30)', value: 'young-adult', emoji: '👨', imageKeyword: 'young-man,portrait' },
+            { text: 'Adult (31-50)', value: 'adult', emoji: '👔', imageKeyword: 'man,portrait' },
+            { text: 'Senior (50+)', value: 'senior', emoji: '👴', imageKeyword: 'senior-citizen,portrait' }
         ]
     },
     {
@@ -38,9 +38,9 @@ const questions = [
         question: "Are they more introverted or extroverted?",
         field: 'personality',
         options: [
-            { text: 'Introverted', value: 'introvert', emoji: '🤫' },
-            { text: 'Extroverted', value: 'extrovert', emoji: '🎉' },
-            { text: 'Ambivert', value: 'ambivert', emoji: '🔄' }
+            { text: 'Introverted', value: 'introvert', emoji: '🤫', imageKeyword: 'reading,book' },
+            { text: 'Extroverted', value: 'extrovert', emoji: '🎉', imageKeyword: 'party,dancing' },
+            { text: 'Ambivert', value: 'ambivert', emoji: '🔄', imageKeyword: 'coffee-shop,friends' }
         ]
     },
     {
@@ -49,9 +49,9 @@ const questions = [
         question: "What's their climate/environment?",
         field: 'climate',
         options: [
-            { text: 'Cold', value: 'cold', emoji: '❄️' },
-            { text: 'Warm', value: 'warm', emoji: '☀️' },
-            { text: 'Moderate', value: 'moderate', emoji: '🍂' }
+            { text: 'Cold', value: 'cold', emoji: '❄️', imageKeyword: 'snow,winter-coat' },
+            { text: 'Warm', value: 'warm', emoji: '☀️', imageKeyword: 'sunny-beach' },
+            { text: 'Moderate', value: 'moderate', emoji: '🍂', imageKeyword: 'autumn-park' }
         ]
     },
     {
@@ -60,12 +60,12 @@ const questions = [
         question: "What's their personal style?",
         field: 'style',
         options: [
-            { text: 'Trendy', value: 'trendy', emoji: '✨' },
-            { text: 'Classic', value: 'classic', emoji: '👔' },
-            { text: 'Artsy', value: 'artsy', emoji: '🎨' },
-            { text: 'Sporty', value: 'sporty', emoji: '⚡' },
-            { text: 'Casual', value: 'casual', emoji: '👕' },
-            { text: "Don't Know", value: 'unknown', emoji: '❓' }
+            { text: 'Trendy', value: 'trendy', emoji: '✨', imageKeyword: 'fashion-model,streetwear' },
+            { text: 'Classic', value: 'classic', emoji: '👔', imageKeyword: 'suit,business-attire' },
+            { text: 'Artsy', value: 'artsy', emoji: '🎨', imageKeyword: 'artist,painting' },
+            { text: 'Sporty', value: 'sporty', emoji: '⚡', imageKeyword: 'athlete,gym' },
+            { text: 'Casual', value: 'casual', emoji: '👕', imageKeyword: 'jeans,t-shirt' },
+            { text: "Don't Know", value: 'unknown', emoji: '❓', imageKeyword: 'gift-box,wrapped' }
         ]
     },
     {
@@ -74,35 +74,30 @@ const questions = [
         question: "What color schemes do they usually wear?",
         field: 'colorScheme',
         options: [
-            { 
-                name: 'Basics', 
-                value: 'basics', 
-                gradient: 'linear-gradient(90deg, #000000 0%, #FFFFFF 50%, #8B4513 100%)',
-                colors: ['black', 'white', 'brown']
+            {
+                name: 'Basics',
+                value: 'basics',
+                colors: ['#2c232d', '#464347', '#524a51', '#dfddce', '#f0f0e9']
             },
-            { 
-                name: 'Dark Colors', 
-                value: 'dark', 
-                gradient: 'linear-gradient(90deg, #001f3f 0%, #065f46 25%, #000000 50%, #8B4513 75%, #7c2d12 100%)',
-                colors: ['dark blue', 'dark green', 'black', 'brown', 'maroon']
+            {
+                name: 'Dark Colors',
+                value: 'dark',
+                colors: ['#0f172a', '#1e293b', '#334155', '#475569', '#64748b']
             },
-            { 
-                name: 'Vibrant', 
-                value: 'vibrant', 
-                gradient: 'linear-gradient(90deg, #fbbf24 0%, #f97316 25%, #ec4899 50%, #ef4444 100%)',
-                colors: ['yellow', 'orange', 'pink', 'red']
+            {
+                name: 'Warm Tones',
+                value: 'vibrant',
+                colors: ['#96231c', '#c93926', '#b55a1d', '#da7c26', '#f5a442']
             },
-            { 
-                name: 'Pastels', 
-                value: 'pastels', 
-                gradient: 'linear-gradient(90deg, #bfdbfe 0%, #bbf7d0 20%, #fef08a 40%, #fbcfe8 60%, #c4b5fd 100%)',
-                colors: ['light blue', 'light green', 'light yellow', 'light pink', 'lilac']
+            {
+                name: 'Pastels',
+                value: 'pastels',
+                colors: ['#fef2f2', '#fff1f2', '#fff7ed', '#f0fdf4', '#eff6ff']
             },
-            { 
-                name: 'Beige/Neutral', 
-                value: 'beige', 
-                gradient: 'linear-gradient(90deg, #8B4513 0%, #d4a574 33%, #c2b280 66%, #e6ccb2 100%)',
-                colors: ['brown', 'skin', 'sand']
+            {
+                name: 'Cool Tones',
+                value: 'cool',
+                colors: ['#6e19bd', '#5e60ce', '#35a7db', '#6ebed6', '#78f6dc']
             }
         ]
     },
@@ -112,11 +107,11 @@ const questions = [
         question: "What type of bag do they usually carry?",
         field: 'bag',
         options: [
-            { text: 'Small Purse', value: 'small-purse', emoji: '👛' },
-            { text: 'Fanny Pack', value: 'fanny-pack', emoji: '👝' },
-            { text: 'Backpack', value: 'backpack', emoji: '🎒' },
-            { text: 'Tote', value: 'tote', emoji: '👜' },
-            { text: 'None', value: 'none', emoji: '🚫' }
+            { text: 'Small Purse', value: 'small-purse', emoji: '👛', imageKeyword: 'purse,handbag' },
+            { text: 'Fanny Pack', value: 'fanny-pack', emoji: '👝', imageKeyword: 'fanny-pack' },
+            { text: 'Backpack', value: 'backpack', emoji: '🎒', imageKeyword: 'backpack' },
+            { text: 'Tote', value: 'tote', emoji: '👜', imageKeyword: 'tote-bag' },
+            { text: 'None', value: 'none', emoji: '🚫', imageKeyword: 'empty-pocket' }
         ]
     },
     {
@@ -125,8 +120,8 @@ const questions = [
         question: "Do they wear glasses or sunglasses daily?",
         field: 'glasses',
         options: [
-            { text: 'Yes - Prescription Glasses', value: 'yes', emoji: '👓' },
-            { text: 'No', value: 'no', emoji: '🚫' }
+            { text: 'Yes - Prescription Glasses', value: 'yes', emoji: '👓', imageKeyword: 'glasses,face' },
+            { text: 'No', value: 'no', emoji: '🚫', imageKeyword: 'face-portrait' }
         ]
     },
     {
@@ -135,11 +130,11 @@ const questions = [
         question: "What kind of food do they typically eat? (Optional)",
         field: 'food',
         options: [
-            { text: 'Healthy/Salads', value: 'healthy', emoji: '🥗' },
-            { text: 'Fast Food', value: 'fast-food', emoji: '🍔' },
-            { text: 'Home-cooked', value: 'homemade', emoji: '🍜' },
-            { text: 'Vegetarian/Vegan', value: 'plant-based', emoji: '🌱' },
-            { text: 'Skip This', value: 'skip', emoji: '⏭️' }
+            { text: 'Healthy/Salads', value: 'healthy', emoji: '🥗', imageKeyword: 'salad,bowl' },
+            { text: 'Fast Food', value: 'fast-food', emoji: '🍔', imageKeyword: 'mcdonalds,burger' },
+            { text: 'Home-cooked', value: 'homemade', emoji: '🍜', imageKeyword: 'home-cooked-meal' },
+            { text: 'Vegetarian/Vegan', value: 'plant-based', emoji: '🌱', imageKeyword: 'vegetables,fresh' },
+            { text: 'Skip This', value: 'skip', emoji: '⏭️', imageKeyword: 'empty-plate' }
         ]
     }
 ];
@@ -160,15 +155,15 @@ function showQuestion(index) {
     currentQuestionIndex = index;
     const question = questions[index];
     const container = document.getElementById('question-container');
-    
+
     // Update progress
     const progress = ((index + 1) / questions.length) * 100;
     document.getElementById('progress').style.width = progress + '%';
     document.getElementById('current-question').textContent = index + 1;
-    
+
     let html = `<div class="question">
         <h3>${question.question}</h3>`;
-    
+
     if (question.type === 'input') {
         const value = answers[question.field] || '';
         html += `
@@ -186,35 +181,60 @@ function showQuestion(index) {
             html += `
                 <div class="color-scheme-option ${selected}" 
                      onclick="selectColorScheme('${question.field}', '${option.value}', this)">
-                    <div class="color-scheme-gradient" style="background: ${option.gradient}"></div>
+                     <!-- New Stripe Design -->
+                    <div class="color-stripe-container">
+                        ${option.colors.map(c => `<div class="color-stripe" style="background-color: ${c}"></div>`).join('')}
+                    </div>
                     <div class="color-scheme-name">${option.name}</div>
                 </div>`;
         });
         html += `</div>`;
     } else if (question.type === 'multiple') {
-        html += `<div class="options">`;
-        question.options.forEach(option => {
-            const selected = answers[question.field] === option.value ? 'selected' : '';
-            const emoji = option.emoji || '';
-            html += `
-                <button class="option-btn ${selected}" 
-                        onclick="selectOption('${question.field}', '${option.value}', this)">
-                    ${emoji ? `<span class="option-emoji">${emoji}</span>` : ''}
-                    ${option.text}
-                </button>`;
-        });
-        html += `</div>`;
+        // Use Image Grid if keywords exist
+        if (question.options[0].imageKeyword) {
+            html += `<div class="buzzfeed-grid">`;
+            question.options.forEach(option => {
+                const selected = answers[question.field] === option.value ? 'selected' : '';
+                // Using loremflickr for real demo images
+                const imgUrl = `https://loremflickr.com/320/240/${option.imageKeyword},lifestyle/all`;
+
+                html += `
+                    <div class="option-card ${selected}" 
+                            onclick="selectOption('${question.field}', '${option.value}', this)">
+                        <div class="option-image" style="background-image: url('${imgUrl}')"></div>
+                        <div class="option-label">
+                            <span class="option-emoji">${option.emoji || ''}</span>
+                            ${option.text}
+                        </div>
+                    </div>`;
+            });
+            html += `</div>`;
+        } else {
+            // Standard Button Layout (fallback)
+            html += `<div class="options">`;
+            question.options.forEach(option => {
+                const selected = answers[question.field] === option.value ? 'selected' : '';
+                const emoji = option.emoji || '';
+                html += `
+                    <button class="option-btn ${selected}" 
+                            onclick="selectOption('${question.field}', '${option.value}', this)">
+                        ${emoji ? `<span class="option-emoji">${emoji}</span>` : ''}
+                        ${option.text}
+                    </button>`;
+            });
+            html += `</div>`;
+        }
     }
-    
+
     html += `
         <div class="nav-buttons">
             ${index > 0 ? '<button class="nav-btn prev" onclick="prevQuestion()">← Previous</button>' : '<div></div>'}
-            ${index < questions.length - 1 
-                ? '<button class="nav-btn next" onclick="nextQuestion()">Next →</button>'
-                : '<button class="nav-btn next" onclick="showResults()">See Results →</button>'}
+            ${index < questions.length - 1
+            ? '<button class="nav-btn next" onclick="nextQuestion()">Next →</button>'
+            : '<button class="nav-btn next" onclick="showResults()">See Results →</button>'}
         </div>
     </div>`;
-    
+
     container.innerHTML = html;
 }
 
@@ -226,12 +246,12 @@ function saveAnswer(field, value) {
 // Select color scheme
 function selectColorScheme(field, value, element) {
     answers[field] = value;
-    
+
     // Remove selected class from all schemes
     element.parentElement.querySelectorAll('.color-scheme-option').forEach(scheme => {
         scheme.classList.remove('selected');
     });
-    
+
     // Add selected class to clicked scheme
     element.classList.add('selected');
 }
@@ -241,7 +261,7 @@ function toggleColor(field, value, element) {
     if (!answers[field]) {
         answers[field] = [];
     }
-    
+
     const index = answers[field].indexOf(value);
     if (index > -1) {
         answers[field].splice(index, 1);
@@ -255,12 +275,12 @@ function toggleColor(field, value, element) {
 // Select single option
 function selectOption(field, value, element) {
     answers[field] = value;
-    
+
     // Remove selected class from all options
     element.parentElement.querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
-    
+
     // Add selected class to clicked option
     element.classList.add('selected');
 }
@@ -282,10 +302,10 @@ function prevQuestion() {
 function showResults() {
     document.getElementById('quiz-page').classList.remove('active');
     document.getElementById('results-page').classList.add('active');
-    
+
     document.getElementById('person-name').textContent = answers.name || 'Your Friend';
     document.getElementById('budget-amount').textContent = `$${answers.budget || '50'}`;
-    
+
     const recommendations = generateRecommendations(answers);
     displayRecommendations(recommendations);
 }
@@ -294,7 +314,7 @@ function showResults() {
 function generateRecommendations(profile) {
     const budget = parseInt(profile.budget) || 50;
     const gifts = [];
-    
+
     // Personality-Based Gifts
     if (profile.personality === 'introvert') {
         gifts.push(
@@ -321,7 +341,7 @@ function generateRecommendations(profile) {
             { name: 'Versatile Accessory', category: 'Fashion', description: 'Accessory that works with any style.', priceRange: '$15-35', stores: ['Amazon', 'Etsy', 'Target'] }
         );
     }
-    
+
     // Climate-Based Gifts
     if (profile.climate === 'cold') {
         gifts.push(
@@ -347,7 +367,7 @@ function generateRecommendations(profile) {
             { name: 'Indoor Decor', category: 'Home', description: 'Stylish home decoration.', priceRange: '$15-40', stores: ['Amazon', 'Target', 'Etsy'] }
         );
     }
-    
+
     // Style-Based Gifts
     if (profile.style === 'trendy') {
         gifts.push(
@@ -382,7 +402,7 @@ function generateRecommendations(profile) {
             { name: 'Classic Accessory', category: 'Accessories', description: 'Timeless neutral accessory.', priceRange: '$15-35', stores: ['Amazon', 'Target', 'Kohls'], accessory: true }
         );
     }
-    
+
     // Bag-Based Add-Ons
     if (profile.bag === 'small-purse') {
         gifts.push(
@@ -410,7 +430,7 @@ function generateRecommendations(profile) {
             { name: 'Home Item', category: 'Home', description: 'Useful home decoration.', priceRange: '$15-40', stores: ['Amazon', 'Target', 'Etsy'] }
         );
     }
-    
+
     // Glasses Wearers
     if (profile.glasses === 'yes') {
         gifts.push(
@@ -418,20 +438,20 @@ function generateRecommendations(profile) {
             { name: 'Clip-on Sunglasses', category: 'Accessories', description: 'Sunglasses that attach to glasses.', priceRange: '$15-30', stores: ['Amazon'], accessory: true }
         );
     }
-    
+
     // Food Preferences (Optional)
     if (profile.food === 'healthy' || profile.food === 'plant-based') {
         gifts.push(
             { name: 'Healthy Snack Box', category: 'Food', description: 'Curated healthy snacks.', priceRange: '$20-40', stores: ['Amazon', 'Target'] }
         );
     }
-    
+
     // Filter by budget
     let budgetFiltered = gifts.filter(gift => {
         const maxPrice = parseInt(gift.priceRange.split('-')[1].replace('$', ''));
         return maxPrice <= budget * 1.2;
     });
-    
+
     // Apply color scheme preferences to accessories only
     if (profile.colorScheme) {
         const colorNote = getColorSchemeNote(profile.colorScheme);
@@ -442,14 +462,14 @@ function generateRecommendations(profile) {
             return gift;
         });
     }
-    
+
     // Remove sunglasses if person wears daily glasses
     if (profile.glasses === 'yes') {
-        budgetFiltered = budgetFiltered.filter(gift => 
+        budgetFiltered = budgetFiltered.filter(gift =>
             !(gift.name === 'Sunglasses' && !gift.name.includes('Clip-on'))
         );
     }
-    
+
     // Return top recommendations
     return budgetFiltered.slice(0, 9);
 }
@@ -463,14 +483,14 @@ function getColorSchemeNote(colorScheme) {
         'pastels': 'Recommended in: Light Blue, Light Green, Light Yellow, Light Pink, or Lilac',
         'beige': 'Recommended in: Brown, Tan/Skin tone, or Sand/Beige'
     };
-    
+
     return schemes[colorScheme] || '';
 }
 
 // Display recommendations
 function displayRecommendations(recommendations) {
     const container = document.getElementById('recommendations');
-    
+
     if (recommendations.length === 0) {
         container.innerHTML = `
             <div style="text-align: center; padding: 2rem;">
@@ -478,7 +498,7 @@ function displayRecommendations(recommendations) {
             </div>`;
         return;
     }
-    
+
     container.innerHTML = recommendations.map(gift => `
         <div class="gift-card">
             <h3>${gift.name}</h3>
@@ -487,9 +507,9 @@ function displayRecommendations(recommendations) {
             ${gift.colorNote ? `<p style="color: #fde68a; font-size: 0.9rem;">🎨 ${gift.colorNote}</p>` : ''}
             <div class="price">${gift.priceRange}</div>
             <div class="shop-links">
-                ${gift.stores.map(store => 
-                    `<a href="https://www.${getStoreURL(store)}" target="_blank" class="shop-link">${store}</a>`
-                ).join('')}
+                ${gift.stores.map(store =>
+        `<a href="https://www.${getStoreURL(store)}" target="_blank" class="shop-link">${store}</a>`
+    ).join('')}
             </div>
         </div>
     `).join('');

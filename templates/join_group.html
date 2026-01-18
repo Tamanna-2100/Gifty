@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page active">
+    <div class="container">
+        <div class="quiz-container">
+            <div class="page-header">
+                <h2>Join {{ group.name }}</h2>
+                <p>Fill out your gift profile so your Secret Santa knows what to get you!</p>
+            </div>
+
+            <form method="POST">
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Your Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+
+                <h3>Preferences Quiz</h3>
+
+                <div class="input-group">
+                    <label>Age Group</label>
+                    <select name="age_group">
+                        <option value="Baby0-2">Baby (0-2)</option>
+                        <option value="Toddler2-5">Toddler (2-5)</option>
+                        <option value="Child5-10">Child (5-10)</option>
+                        <option value="Pre teen10-13">Pre-teen (10-13)</option>
+                        <option value="Teen13-18">Teen (13-18)</option>
+                        <option value="Young adult19-25" selected>Young Adult (19-25)</option>
+                        <option value="Adult25-50">Adult (25-50)</option>
+                        <option value="Senior50+">Senior (50+)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Personality Type</label>
+                    <select name="personality">
+                        <option value="Introvert">Introvert</option>
+                        <option value="Extrovert">Extrovert</option>
+                        <option value="Ambivert">Ambivert</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Current Climate</label>
+                    <select name="climate">
+                        <option value="Cold">Cold</option>
+                        <option value="Warm">Warm</option>
+                        <option value="Springy">Springy</option>
+                        <option value="Summer">Summer</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Personal Style</label>
+                    <select name="style">
+                        <option value="Trendy">Trendy</option>
+                        <option value="Comfy">Comfy</option>
+                        <option value="Classic">Classic</option>
+                        <option value="Bohemian">Bohemian</option>
+                        <option value="Streetwear">Streetwear</option>
+                        <option value="Minimalist">Minimalist</option>
+                        <option value="Preppy">Preppy</option>
+                        <option value="Vintage">Vintage</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Favorite Color Scheme</label>
+                    <input type="text" name="color_scheme" placeholder="e.g. Pastels, Earth Tones, Dark Mode">
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Join Group</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
