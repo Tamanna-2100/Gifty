@@ -1,10 +1,10 @@
-# 🎁 Gifty - Perfect Gift Finder
+ Gifty - Perfect Gift Finder
 
 A beautiful, interactive web app that helps you find the perfect gift for anyone through a personalized quiz or curated gift collections.
 
-## ✨ Features
+# Features
 
-### 🎯 Personalized Quiz
+# Personalized Quiz
 Answer questions about the person to get customized gift recommendations:
 - Age group (Baby to Senior)
 - Personality type (Introvert, Extrovert, Ambivert)
@@ -13,7 +13,7 @@ Answer questions about the person to get customized gift recommendations:
 - Color scheme preferences
 - And more!
 
-### 🎁 General Gift Ideas
+# General Gift Ideas
 Browse safe, universally appreciated gifts including:
 - Gift cards
 - Planners & notebooks
@@ -22,47 +22,38 @@ Browse safe, universally appreciated gifts including:
 - Self-care kits
 - And more!
 
-### 🎅 Secret Santa
-Coming soon - Special features for Secret Santa gift exchanges!
-
-## 🎨 Design
-- Beautiful gradient backgrounds with cool color palette
-- Smooth animations and transitions
-- Glass-morphism design effects
-- Fully responsive for mobile and desktop
-
-## 🚀 How to Use
+# How to Use
 
 1. Open `index.html` in your web browser
 2. Choose your mode:
    - **Personalized Quiz** - Answer questions for custom recommendations
    - **General Gift Ideas** - Browse universal gift options
-   - **Secret Santa** - Coming soon!
+   - **Secret Santa** - Lets users create secret santa group where users take the quiz and users who have each other get recommendations for the user they recieved.
 3. Get personalized gift recommendations with links to multiple shopping platforms
 
-## 🛍️ Supported Stores
+# Supported Stores
 - Amazon
 - Target
 - Walmart
 - Etsy
-- Michaels
-- Kohls
-- Ulta
-- Sephora
+- Michaels(Planning)
+- Kohls(Planning)
+- Ulta(Planning)
+- Sephora(Planning)
 
-## 💻 Technologies Used
+# Technologies Used
 - HTML5
-- CSS3 (with animations and gradients)
-- Vanilla JavaScript
+- CSS3 
+- JavaScript
 - No dependencies required!
 
-## 📱 Responsive Design
+# Responsive Design
 Works perfectly on:
 - Desktop computers
 - Tablets
 - Mobile phones
 
-## 🎯 Gift Recommendation Logic
+# Gift Recommendation Logic
 Smart matching based on:
 - Personality traits
 - Climate conditions
@@ -71,9 +62,4 @@ Smart matching based on:
 - Color preferences (for accessories)
 - Lifestyle indicators
 
-## 📄 License
-Feel free to use and modify for personal projects!
 
----
-
-Made with 💝 for finding the perfect gifts
